@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from '@mui/material/styles';
 
 export const Colors = {
     primary:"#5f2c3e",
@@ -26,6 +26,7 @@ export const Colors = {
     white: "#fff",
     black: "#000"
 };
+
 
 const theme = createTheme({
     palette: {
