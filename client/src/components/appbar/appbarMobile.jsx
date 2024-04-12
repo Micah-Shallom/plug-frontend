@@ -3,15 +3,17 @@ import { AppBarContainer, AppBarHeader } from "../../styles/appBarStyles"
 import MenuIcon from "@mui/icons-material/Menu"
 import SearchIcon from "@mui/icons-material/Search"
 import Action from "./actions"
+import { useUIContext } from "../../context/ui"
 
 const AppBarMobile = ({matches}) => {
+    const {setOpenDrawer, setOpenSearchBox} = useUIContext();
     return (
         <AppBarContainer>
-            <IconButton>
+            <IconButton onClick={() => setOpenDrawer(true)}>
                 <MenuIcon/>
             </IconButton>
             <AppBarHeader textAlign={"center"}>Plug</AppBarHeader>
-            <IconButton>
+            <IconButton onClick={() => setOpenSearchBox(true)}>
                 <SearchIcon/>
             </IconButton>
             <Action matches={matches}/>

@@ -63,6 +63,24 @@ const theme = createTheme({
                     },
                 }
             }
+        },
+        MuiDrawer: {
+            styleOverrides: {
+                paper: {
+                    width: 250,
+                    background: Colors.primary,
+                    color: Colors.secondary,
+                    // borderRadius: "0px 80px 0px 0px",
+                    borderRight: `1px solid ${Colors.secondary}`,
+                }
+            }
+        },
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    borderColor: lighten(0.2, Colors.primary)
+                }
+            }
         }
     }
 });

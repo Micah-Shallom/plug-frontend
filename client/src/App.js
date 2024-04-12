@@ -8,6 +8,9 @@ import Banner from './components/banner';
 import Promotion from './components/promotions';
 import Products from './components/products';
 import Footer from './components/footer';
+import AppDrawer from './components/drawer';
+import { UIProvider } from './context/ui';
+import SearchBox from './components/search';
 
 function App() {
 
@@ -25,24 +28,20 @@ function App() {
           }
         }
       >
-        <AppBar />
-        <Banner/>
-        <Promotion/>
-        <Box display="flex" justifyContent="center" sx={{p: 4}}>
-          <Typography variant='h4'>
-            Products
-          </Typography>
-        </Box>
-        <Products/>
-        <Footer/>
-        {
-        /*
-          Title
-          Footer
-          SearchBox
-          AppDrawer
-        */  
-        }
+        <UIProvider>
+          <AppDrawer/>
+          <AppBar />
+          <Banner/>
+          <Promotion/>
+          <Box display="flex" justifyContent="center" sx={{p: 4}}>
+            <Typography variant='h4'>
+              Products
+            </Typography>
+          </Box>
+          <Products/>
+          <Footer/>
+          <SearchBox/>
+        </UIProvider>
       </Container>
     </ThemeProvider>
   );
