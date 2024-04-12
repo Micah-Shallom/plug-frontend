@@ -7,6 +7,7 @@ import AppBar from './components/appbar';
 import Banner from './components/banner';
 import Promotion from './components/promotions';
 import Products from './components/products';
+import Footer from './components/footer';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           </Typography>
         </Box>
         <Products/>
+        <Footer/>
         {
         /*
           Title

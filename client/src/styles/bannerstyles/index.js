@@ -63,7 +63,7 @@ export const BannerShopButton = styled(Button, {
     shouldForwardProp: (prop) =>
     prop !== 'color',
     name: "MyShopButton",
-    slot: "Root",
+    // slot: "Root",
     overridesResolver: (props, styles) => [
         styles.root,
         props.color === "primary" && styles.primary,
