@@ -1,5 +1,5 @@
 import { IconButton } from "@mui/material"
-import { AppBarContainer, AppBarHeader } from "../../styles/appbarstyles"
+import { AppBarContainer, AppBarHeader } from "../../styles/appBarStyles"
 import MenuIcon from "@mui/icons-material/Menu"
 import SearchIcon from "@mui/icons-material/Search"
 import Action from "./actions"

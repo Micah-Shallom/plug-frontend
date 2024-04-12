@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Button, Typography, styled } from "@mui/material";
 import { Colors } from "../theme";
 
 export const BannerContainer = styled(Box)(({theme}) => ({
@@ -11,7 +11,7 @@ export const BannerContainer = styled(Box)(({theme}) => ({
     [theme.breakpoints.up('md')]: {
         height: "30%"
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
         flexDirection:'column',
         alignItems: 'center'
     }
@@ -22,7 +22,8 @@ export const BannerContent = styled(Box)(() => ({
     justifyContent:"center",
     display:"flex",
     maxWidth:420,
-    padding: "30px"
+    height: "100%",
+    padding: "30px",
 }));
 
 export const BannerTitle = styled(Typography)(({theme}) => ({
@@ -37,7 +38,7 @@ export const BannerTitle = styled(Typography)(({theme}) => ({
 export const BannerDescription = styled(Typography)(({theme}) => ({
     lineHeight: 1.25,
     letterspacing: 1.25,
-    marginBottom: "30em",
+    marginBottom: "3em",
     [theme.breakpoints.down('md')]: {
         lineHeight: 1.15,
         letterspacing: 1.15,
@@ -49,11 +50,32 @@ export const BannerImage = styled('img')(({src, theme}) => ({
     src: `url(${src})`,
     width: '500px',
     height: 'inherit',
-    [theme.breakpoints.down('md')]: {
-        width: '350px'
+    [theme.breakpoints.up('sm')]: {
+        width: '400px'
     },
     [theme.breakpoints.down('sm')]: {
         width: '320px',
         height: "300px"
+    }
+}));
+
+export const BannerShopButton = styled(Button, {
+    shouldForwardProp: (prop) =>
+    prop !== 'color',
+    name: "MyShopButton",
+    slot: "Root",
+    overridesResolver: (props, styles) => [
+        styles.root,
+        props.color === "primary" && styles.primary,
+        props.color === "secondary" && styles.secondary
+    ],
+})(({theme}) => ({
+    padding: "20px 0px",
+    color: Colors.white,
+    fontWeight: "bold",
+    fontSize: "16px",
+    [theme.breakpoints.down("sm")]: {
+        padding: "10px 0px",
+        fontSize: "14px"
     }
 }))

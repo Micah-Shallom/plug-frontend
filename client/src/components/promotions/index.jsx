@@ -1,6 +1,6 @@
 import { Box, Slide } from "@mui/material"
-import { MessageText, PromotionsContainer } from "../../styles/promotionstyles"
-import { useState } from "react"
+import { MessageText, PromotionsContainer } from "../../styles/promotionStyles"
+import { useEffect, useRef, useState } from "react"
 
 const messages = [
     "Find reputable businesses and products",
@@ -9,10 +9,29 @@ const messages = [
 ]
 
 const Promotion = () => {
+    const containerRef = useRef()
     const [messageIndex, setMessageIndex] = useState(0)
+    const [show, setShow] = useState(true)
+
+    useEffect(() => {
+        const intervalID = setInterval(() => {
+            setMessageIndex(i => (i + 1) % messages.length)
+
+            setShow(true)
+    
+            setTimeout(() => {
+                setShow(false)
+            }, 3000);
+        }, 4000);
+
+
+        return () => {
+            clearInterval(intervalID)
+        }
+    }, [])
     return (
-        <PromotionsContainer>
-            <Slide direction="left">
+        <PromotionsContainer ref={containerRef}>
+            <Slide direction={show ? "left" : "right"} in={show} timeout={{enter:500, exit:100}}>
                 <Box display={"flex"} justifyContent="center" alignItems={"center"}>
                     <MessageText>
                         {
