@@ -55,7 +55,7 @@ const Footer = () => {
                         </ListItemText>
                         <ListItemText>
                             <Typography lineHeight={2} variant="caption2">
-                               My Cart
+                               Register Business Owner
                             </Typography>
                         </ListItemText>
                         <ListItemText>

@@ -1,5 +1,4 @@
 import { Button, Divider, Drawer, List, ListItemButton, ListItemText, styled } from "@mui/material";
-import { useState } from "react";
 import { useUIContext } from "../../context/ui";
 import { DrawerCloseButton } from "../../styles/appBarStyles";
 import CloseIcon from '@mui/icons-material/Close';
@@ -11,13 +10,18 @@ const AppDrawer = () => {
         <Divider variant="middle" {...props}/>
     ))``;
 
-    const {openDrawer, setOpenDrawer} = useUIContext();
+    const {openDrawer, setOpenDrawer,setOpenSearchBox, showCategories, setShowCategories} = useUIContext();
 
     return (
         <>
-
             {
-                openDrawer && <Button onClick={() => setOpenDrawer(false)}>
+                openDrawer && <Button onClick={() => {
+                    setOpenDrawer(false)
+                    setOpenSearchBox(false)
+                    if (showCategories){
+                        setShowCategories(false)
+                    }
+                }}>
                     <DrawerCloseButton>
                         <CloseIcon sx={{fontSize:"2.5rem", color:lighten(0.09, Colors.secondary)}}/>
                     </DrawerCloseButton>
@@ -29,7 +33,10 @@ const AppDrawer = () => {
                         <ListItemText>Home</ListItemText>
                     </ListItemButton>
                     <MiddleDivider />
-                    <ListItemButton>
+                    <ListItemButton onClick={() => {
+                        setOpenSearchBox(true)
+                        setShowCategories(true)
+                    }}>
                         <ListItemText>Categories</ListItemText>
                     </ListItemButton>
                     <MiddleDivider />
@@ -42,7 +49,7 @@ const AppDrawer = () => {
                     </ListItemButton>
                     <MiddleDivider />
                     <ListItemButton>
-                        <ListItemText>Contact Us</ListItemText>
+                        <ListItemText>Bussinesses</ListItemText>
                     </ListItemButton>
                     <MiddleDivider />
                 </List>

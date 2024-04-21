@@ -1,7 +1,7 @@
 import { Box, TextField, styled } from "@mui/material";
 import { Colors } from "../theme";
 
-export const SearchBoxContainer = styled(Box)(({theme}) => ({
+export const DropDownContainer = styled(Box)(({theme}) => ({
     position: "absolute",
     top: 0,
     left: 0,
@@ -29,5 +29,5 @@ export const SearchField = styled(TextField)(({theme}) => ({
     ".MuiInput-root::before": {
         borderBottom: `1px solid ${Colors.secondary}`
     },
-    padding: "0 0 0 40px"
+    padding: "0 0 0 40px",
 }));

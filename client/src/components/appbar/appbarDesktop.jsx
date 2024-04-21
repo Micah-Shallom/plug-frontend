@@ -5,17 +5,32 @@ import Action from "./actions"
 import { useUIContext } from "../../context/ui"
 
 const AppBarDesktop = ({matches}) => {
-    const {setOpenSearchBox} = useUIContext();
+    const { setOpenSearchBox, setShowCategories} = useUIContext();
+
 
     return (
             <AppBarContainer>
                 <AppBarHeader>Plug</AppBarHeader>
                 <MyList type="row">
-                    <ListItemText primary="Home"/>
-                    <ListItemText primary="Categories"/>
-                    <ListItemText primary="Products"/>
-                    <ListItemText primary="Contact Us"/>
-                    <ListItemButton onClick={() => setOpenSearchBox(true)}>
+                    <ListItemButton>
+                        <ListItemText primary="Home"/>
+                    </ListItemButton>
+                    <ListItemButton onClick={() => {
+                        setOpenSearchBox(true)
+                        setShowCategories(true)
+                    }}>
+                        <ListItemText primary="Categories"/>
+                    </ListItemButton>
+                    <ListItemButton>
+                        <ListItemText primary="Products"/>
+                    </ListItemButton>
+                    <ListItemButton>
+                        <ListItemText primary="Businesses"/>
+                    </ListItemButton>
+                    <ListItemButton onClick={() => {
+                        setOpenSearchBox(true)
+                        setShowCategories(false)
+                    }}>
                         <ListItemIcon>
                             <SearchIcon/>
                         </ListItemIcon>
