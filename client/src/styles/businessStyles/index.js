@@ -1,23 +1,22 @@
-import { styled, Container, Grid, Card, CardContent,CardMedia, Typography,Box } from '@mui/material';
+import { styled, Container, Grid, Card, CardContent, CardMedia, Avatar, Button ,Box} from '@mui/material';
+import { Colors } from '../theme';
 
 export const BusinessContainer = styled(Container)`
-  width: 100%;
-  padding: 48px 0;
-`;
+  padding: 30px 0px 0px 0px;
+  width:100%;
+  `;
+  
+  export const BusinessGrid = styled(Grid)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-export const BusinessContentContainer = styled(Grid)`
-  display: grid;
-  gap: 32px;
-  padding: 0 24px;
   @media (min-width: 768px) {
-    padding: 0 32px;
   }
 `;
 
-export const BusinessCardContainer = styled(Card)`
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+export const BusinessCard = styled(Card)`
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
@@ -27,30 +26,31 @@ export const BusinessCardContainer = styled(Card)`
 `;
 
 export const BusinessCardContent = styled(CardContent)`
-  padding: 24px;
+  padding: 10px 0px;
 `;
 
-export const BusinessImage = styled(CardMedia)`
-  width: 100%;
-  height: 200px;
+export const BusinessCardMedia = styled(CardMedia)`
+  height: 120px;
   object-fit: cover;
-  border-radius: 16px 16px 0 0;
+  aspect-ratio: 400 / 300;
+  border-radius: 5px;
 `;
 
-export const BusinessInfo = styled(Box)`
-  margin-top: 16px;
+export const BusinessAvatar = styled(Avatar)`
+  border: 1px solid;
 `;
 
-export const BusinessTitle = styled(Typography)`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 8px;
+export const BusinessLink = styled(Button)`
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: ${Colors.primary};
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+    background-color: ${Colors.light_gray};
+  }
 `;
-
-export const BusinessDescription = styled(Typography)`
-  font-size: 1rem;
-  color: #666;
-`;
-
-
-

@@ -1,15 +1,24 @@
 import React from "react";
-import BusinessCard from "../businessCard";
-import { BusinessContainer, BusinessContentContainer } from "../../styles/businessStyles";
+import { BusinessContainer, BusinessGrid } from "../../styles/businessStyles";
+import BusinessCardWrapper from "../businessCard";
+import { Typography,Box } from "@mui/material";
+import PaginationOutlined from "../pagination";
+
 
 export default function Businesses() {
   return (
     <BusinessContainer>
-      <BusinessContentContainer>
-        {businesses.map((business) => (
-          <BusinessCard key={business.id} business={business} />
-        ))}
-      </BusinessContentContainer>
+      <Box sx={{marginBottom:"20px"}}>
+        <Typography variant="h4">Explore Businesses Around you</Typography>
+        <Typography variant="body1">Connect with business and find out what services they offer</Typography>
+      </Box>
+
+      <BusinessGrid container spacing={{sm:1, md:2}}  columns={{xs:4 ,sm:8, md:12}}>
+          {businesses.map(business => (
+            <BusinessCardWrapper key={business.id} business={business} />
+          ))}
+       </BusinessGrid>
+       <PaginationOutlined />
     </BusinessContainer>
   );
 }
