@@ -9,23 +9,23 @@ const Category = () => {
     const renderCategories = categoryData.map(category => (
         <Grid key={category.id} item xs={12} md={6} lg={4} xl={3}>
             <CategoryCard>
-            <CardActionArea>
-                <Stack spacing={2} direction="row">
-                    <StyledBadge badgeContent={4} color="secondary">
-                        <CategoryIconWrapper>
-                            <DonutLargeIcon fontSize="large" />
-                        </CategoryIconWrapper>
-                    </StyledBadge>
-                </Stack>
-                <CategoryCardContent>
-                <Typography variant="h5" component="h3" fontWeight="semibold" tracking="tight">
-                    {category.category}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {category.description}
-                </Typography>
-                </CategoryCardContent>
-            </CardActionArea>
+                <CardActionArea>
+                    <Stack spacing={2} direction="row">
+                        <StyledBadge badgeContent={4} color="secondary">
+                            <CategoryIconWrapper>
+                                <DonutLargeIcon fontSize="large" />
+                            </CategoryIconWrapper>
+                        </StyledBadge>
+                    </Stack>
+                    <CategoryCardContent>
+                        <Typography variant="h5" component="h3" fontWeight="semibold" tracking="tight">
+                            {category.category}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {category.description}
+                        </Typography>
+                    </CategoryCardContent>
+                </CardActionArea>
             </CategoryCard>
         </Grid>
     ))
