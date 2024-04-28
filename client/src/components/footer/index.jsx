@@ -1,17 +1,18 @@
-import { Box, Grid, List, ListItemText, Typography,Stack, Button } from "@mui/material"
+import { Box, Grid, List, ListItemText, Typography,Stack } from "@mui/material"
 import { Colors } from "../../styles/theme"
-import { FooterTitle, SubsccribeTF } from "../../styles/footerStyles"
+import { FooterTitle, SubscribeTF } from "../../styles/footerStyles"
 import FaceBookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import SendIcon from '@mui/icons-material/Send';
+import PlugButton from "../button";
 
 const Footer = () => {
     return (
         <Box sx={{
             background: Colors.shaft,
             color: Colors.white,
-            p: {xs:4, md:10}, pt:12, pb:12, fontSize: {xs: "12px", md:"14px"}
+            p: {xs:4, md:10}, pt:12, pb:12, fontSize: {xs: "12px", md:"14px"},
+            height: "auto",
         }}>
             <Grid container spacing={2} justifyContent="center">
                 <Grid item md={6} lg={4}>
@@ -68,14 +69,8 @@ const Footer = () => {
                 <Grid item md={6} lg={4}>
                     <FooterTitle variant="body1">NewsLetter</FooterTitle>
                     <Stack>
-                        <SubsccribeTF color="primary" label="Email Address" variant="standard"/>
-                        <Button
-                            startIcon={<SendIcon sx={{color: Colors.white}}/>}
-                            sx={{mt:4, mb:4}}
-                            variant="contained"
-                        >
-                            Subscribe
-                        </Button>
+                        <SubscribeTF color="primary" label="Email Address" variant="standard"/>
+                        <PlugButton title="Subscribe"/>
                     </Stack>
                 </Grid>
             </Grid>

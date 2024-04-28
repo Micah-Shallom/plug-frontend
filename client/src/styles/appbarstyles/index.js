@@ -1,6 +1,7 @@
 import { Box, IconButton, List, Typography, styled } from "@mui/material";
 import { Colors } from "../theme";
 import "@fontsource/montez"
+import { Link } from "react-router-dom";
 
 //container
 export const AppBarContainer = styled(Box)(() => ({
@@ -8,7 +9,10 @@ export const AppBarContainer = styled(Box)(() => ({
     marginTop:4,
     justifyContent:"center",
     alignItems:"center",
-    padding: '2px 8px'
+    padding: '2px 8px',
+    boxShadow: '0 2px 4px 0 rgba(0,0,0,0.2)',
+    zIndex: 999999999999,
+    // position: 'fixed'
 }));
 
 //header
@@ -48,4 +52,9 @@ export const DrawerCloseButton = styled(IconButton)(() => ({
     top: -13,
     left: "170px",
     zIndex: 19999
+}))
+
+export const LinkStyle = styled(Link)(() => ({
+    textDecoration: "none",
+    color: "inherit"
 }))

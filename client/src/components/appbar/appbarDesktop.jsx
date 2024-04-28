@@ -1,5 +1,5 @@
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
-import { AppBarContainer, AppBarHeader, MyList } from "../../styles/appBarStyles"
+import { AppBarContainer, AppBarHeader, LinkStyle, MyList } from "../../styles/appBarStyles"
 import SearchIcon from '@mui/icons-material/Search'
 import Action from "./actions"
 import { useUIContext } from "../../context/ui"
@@ -13,7 +13,9 @@ const AppBarDesktop = ({matches}) => {
                 <AppBarHeader>Plug</AppBarHeader>
                 <MyList type="row">
                     <ListItemButton>
-                        <ListItemText primary="Home"/>
+                        <LinkStyle to="/">
+                            <ListItemText primary="Home"/>
+                        </LinkStyle>
                     </ListItemButton>
                     <ListItemButton onClick={() => {
                         setOpenSearchBox(true)
@@ -22,10 +24,14 @@ const AppBarDesktop = ({matches}) => {
                         <ListItemText primary="Categories"/>
                     </ListItemButton>
                     <ListItemButton>
-                        <ListItemText primary="Products"/>
+                        <LinkStyle to="/products">
+                            <ListItemText primary="Products"/>
+                        </LinkStyle>
                     </ListItemButton>
                     <ListItemButton>
-                        <ListItemText primary="Businesses"/>
+                        <LinkStyle to="/business">
+                            <ListItemText primary="Businesses"/>
+                        </LinkStyle>
                     </ListItemButton>
                     <ListItemButton onClick={() => {
                         setOpenSearchBox(true)

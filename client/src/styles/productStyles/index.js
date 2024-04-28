@@ -10,7 +10,8 @@ export const Product = styled(Box)(({theme}) => ({
     flexDirection: "column",
     [theme.breakpoints.up("md")]: {
         position: "relative"
-    }
+    },
+    backgroundColor: Colors.light_gray
 }));
 
 export const ProductImage = styled('img')(({src, theme}) => ({

@@ -1,4 +1,4 @@
-import {TextField, Typography, styled } from "@mui/material";
+import {TextField, Typography, styled} from "@mui/material";
 import { Colors } from "../theme";
 
 export const FooterTitle = styled(Typography)(() => ({
@@ -6,7 +6,7 @@ export const FooterTitle = styled(Typography)(() => ({
     marginBottom: "1em"
 }));
 
-export const SubsccribeTF = styled(TextField)(() => ({
+export const SubscribeTF = styled(TextField)(() => ({
     ".MuiInputLabel-root":{
         color: Colors.secondary
     },
@@ -14,3 +14,4 @@ export const SubsccribeTF = styled(TextField)(() => ({
         borderBottom: `1px solid ${Colors.secondary}`
     }
 }));
+

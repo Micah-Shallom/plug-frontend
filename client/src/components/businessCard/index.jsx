@@ -1,4 +1,4 @@
-import { BusinessAvatar, BusinessCard, BusinessCardContent, BusinessCardMedia, BusinessContainer, BusinessGrid, BusinessLink } from "../../styles/businessStyles";
+import { BusinessAvatar, BusinessCard, BusinessCardContent, BusinessCardMedia,  BusinessLink } from "../../styles/businessStyles";
 import { Grid, Typography , Box, Divider} from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
@@ -10,7 +10,7 @@ export default function BusinessCardWrapper({business}) {
             <Box sx={{"padding":"10px"}}>
               <BusinessCardMedia
                 component="img"
-                image="https://source.unsplash.com/400x600/?business"
+                image="https://source.unsplash.com/random?wallpapers"
                 alt="Business Photo"
               />
 

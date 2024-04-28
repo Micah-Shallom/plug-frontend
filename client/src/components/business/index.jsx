@@ -8,17 +8,17 @@ import PaginationOutlined from "../pagination";
 export default function Businesses() {
   return (
     <BusinessContainer>
-      <Box sx={{marginBottom:"20px"}}>
-        <Typography variant="h4">Explore Businesses Around you</Typography>
-        <Typography variant="body1">Connect with business and find out what services they offer</Typography>
-      </Box>
+        <Box sx={{marginBottom:"30px"}}>
+          <Typography variant="h4">Explore Businesses Around you</Typography>
+          <Typography variant="body1">Connect with business and find out what services they offer</Typography>
+        </Box>
 
-      <BusinessGrid container spacing={{sm:1, md:2}}  columns={{xs:4 ,sm:8, md:12}}>
+        <BusinessGrid container spacing={{sm:1, md:2}}  columns={{xs:4 ,sm:8, md:12}}>
           {businesses.map(business => (
             <BusinessCardWrapper key={business.id} business={business} />
           ))}
-       </BusinessGrid>
-       <PaginationOutlined />
+        </BusinessGrid>
+        <PaginationOutlined />
     </BusinessContainer>
   );
 }

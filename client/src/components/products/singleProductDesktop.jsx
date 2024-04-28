@@ -1,9 +1,12 @@
-import { Stack } from "@mui/material"
+import { Stack, Tooltip } from "@mui/material"
 import { Product, ProductActionButton, ProductAddToCart, ProductFavIcon, ProductIconsWrapper, ProductImage } from "../../styles/productStyles"
 import ProductDescription from "./productDescription"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { useState } from "react";
+import FitScreenIcon from "@mui/icons-material/FitScreen";
+import useDialogModal from "../../hooks/useDialogModal";
+
 
 const SingleProductDesktop = ({product, matches}) => {
     const [showOptions, setShowOptions] = useState(false)
@@ -13,6 +16,7 @@ const SingleProductDesktop = ({product, matches}) => {
     const handleMouseLeave = () => {
         setShowOptions(false)
     }
+    const [ showProductDetailDialog] = useDialogModal();
     return (
         <>
             <Product sx={{boxShadow: 3}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -24,7 +28,14 @@ const SingleProductDesktop = ({product, matches}) => {
                 <ProductIconsWrapper show={showOptions}>
                     <Stack direction="column">
                         <ProductActionButton>
-                            <ShareIcon color="primary"/>
+                            <Tooltip placement="left" title="Share this product">
+                                <ShareIcon color="primary"/>
+                            </Tooltip>
+                        </ProductActionButton>
+                        <ProductActionButton onClick={() => showProductDetailDialog()}>
+                            <Tooltip placement="left" title="Full view">
+                                <FitScreenIcon color="primary" />
+                            </Tooltip>
                         </ProductActionButton>
                     </Stack>  
                 </ProductIconsWrapper>

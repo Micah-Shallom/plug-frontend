@@ -44,7 +44,7 @@ export const CategoryCardContent = styled(CardContent)`
 
 export const CardActionArea = styled(Box)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
 `;
 

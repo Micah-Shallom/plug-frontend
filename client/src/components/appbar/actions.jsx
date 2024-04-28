@@ -5,6 +5,7 @@ import PersonIcon from "@mui/icons-material/Person"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import { ActionIconsContainerDesktop, ActionIconsContainerMobile } from "../../styles/appBarStyles";
 import { Colors } from "../../styles/theme";
+import { Link as RouterLink } from "react-router-dom";
 
 const Action = ({matches}) => {
     const Component = matches ? ActionIconsContainerMobile : ActionIconsContainerDesktop;
@@ -48,6 +49,8 @@ const Action = ({matches}) => {
                     sx={{
                         justifyContent: "center"
                     }}
+                    to="/signup"
+                    component={RouterLink}
                 >
                     <ListItemIcon
                         sx={{

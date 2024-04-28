@@ -3,6 +3,7 @@ import Banner from "../components/banner";
 import Promotion from "../components/promotions";
 import Products from "../components/products";
 import { useEffect } from "react";
+import { products } from "../data";
 
 const HomePage = ({title}) => {
     useEffect(() => {
@@ -18,7 +19,7 @@ const HomePage = ({title}) => {
                 Products
                 </Typography>
             </Box>
-            <Products/>
+            <Products data={products}/>
         </>
     )
 }
