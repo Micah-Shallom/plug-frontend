@@ -70,7 +70,7 @@ const Footer = () => {
                     <FooterTitle variant="body1">NewsLetter</FooterTitle>
                     <Stack>
                         <SubscribeTF color="primary" label="Email Address" variant="standard"/>
-                        <PlugButton title="Subscribe"/>
+                        <PlugButton title="Subscribe" fullWidth />
                     </Stack>
                 </Grid>
             </Grid>

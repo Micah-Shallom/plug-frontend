@@ -108,7 +108,7 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
-            <PlugButton title="Sign Up"/>
+            <PlugButton title="Sign Up" fullWidth />
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link to="/signin" variant="body2" component={RouterLink}>

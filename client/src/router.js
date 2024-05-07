@@ -7,6 +7,8 @@ import MainLayout from "./components/layout";
 import ProductsPage from "./pages/ProductsPage";
 import SignUp from "./components/signup";
 import SignIn from "./components/signin";
+import AddProduct from "./components/addProduct";
+import { ProductDetailPage } from "./pages/ProductDetailPage";
 
 const Router = createBrowserRouter([
     {
@@ -33,6 +35,14 @@ const Router = createBrowserRouter([
                 path: "/products",
                 errorElement: <NotFoundPage page="Products"/>,
                 element: <ProductsPage/>
+            },{
+                path: "/products/:id",
+                errorElement: <NotFoundPage/>,
+                element: <ProductDetailPage/>
+            }, {
+                path: "/products/add",
+                errorElement: <NotFoundPage/>,
+                element: <AddProduct/>
             }
         ]
     },{

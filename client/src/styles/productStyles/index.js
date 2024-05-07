@@ -18,6 +18,7 @@ export const ProductImage = styled('img')(({src, theme}) => ({
     src : `url(${src})`,
     width: '100%',
     height: "350px",
+    // height: "100%",
     background: Colors.light_gray,
     [theme.breakpoints.down("md")]: {
         width: "80%",

@@ -98,7 +98,7 @@ export default function SignIn() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <PlugButton title="Sign In"/>
+              <PlugButton title="Sign In" fullWidth/>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">

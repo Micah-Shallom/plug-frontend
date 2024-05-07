@@ -5,32 +5,41 @@ import PaginationOutlined from "../components/pagination";
 import { BusinessContainer } from "../styles/businessStyles";
 import { useUIContext } from "../context/ui";
 import { useEffect } from "react";
+import PlugButton from "../components/button";
+import AddProduct from "../components/addProduct";
+import { Link } from "react-router-dom";
 
 const ProductsPage = ({data}) => {
     const {products, fetchProducts} = useUIContext();
 
-    useEffect(() => {
-        fetchProducts();
-    }, [fetchProducts])
+    // useEffect(() => {
+    //     if (!showAddProductPopup) {
+    //         setShowAddProductPopup(false)
+    //     }
+    // }, [])
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
     
     return (
         <BusinessContainer>
-            <Box sx={{marginBottom:"30px"}}>
-                <Typography variant="h4">
-                    Explore Products Around 
-                </Typography>
-                <Typography variant="body1">
-                    Browse through our wide selection of categories to find what you're looking for.
-                </Typography>
+            <Box sx={{marginBottom:"30px", display:"flex", justifyContent:"space-between"}}>
+                <Box>
+                    <Typography variant="h4">
+                        Explore Products Around 
+                    </Typography>
+                    <Typography variant="body1">
+                        Browse through our wide selection of categories to find what you're looking for.
+                    </Typography>
+                </Box>
+                <Link to="/products/add">
+                    <PlugButton title={"Add Product"}/>
+                </Link>
             </Box>
-            {products.length === 0 ? (
-                <h1>Loading...</h1>
-            ) : (
-                console.log(products)
-                // <Products data={products} />
-            )}
-            {/* <Products data={productData}/> */}
-            <PaginationOutlined />
+            <Products data={productData}/>
+            <PaginationOutlined /> 
+            
         </BusinessContainer>
     )
 };

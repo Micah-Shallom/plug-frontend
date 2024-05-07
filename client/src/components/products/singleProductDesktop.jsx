@@ -5,7 +5,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { useState } from "react";
 import FitScreenIcon from "@mui/icons-material/FitScreen";
-import useDialogModal from "../../hooks/useDialogModal";
+import { useNavigate } from "react-router-dom";
 
 
 const SingleProductDesktop = ({product, matches}) => {
@@ -16,7 +16,12 @@ const SingleProductDesktop = ({product, matches}) => {
     const handleMouseLeave = () => {
         setShowOptions(false)
     }
-    const [ showProductDetailDialog] = useDialogModal();
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/products/${product.id}`)
+    };
+
     return (
         <>
             <Product sx={{boxShadow: 3}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -32,9 +37,9 @@ const SingleProductDesktop = ({product, matches}) => {
                                 <ShareIcon color="primary"/>
                             </Tooltip>
                         </ProductActionButton>
-                        <ProductActionButton onClick={() => showProductDetailDialog()}>
-                            <Tooltip placement="left" title="Full view">
-                                <FitScreenIcon color="primary" />
+                        <ProductActionButton onClick={handleClick}>
+                            <Tooltip placement="left" title="Full view" >
+                                <FitScreenIcon color="primary"  />
                             </Tooltip>
                         </ProductActionButton>
                     </Stack>  

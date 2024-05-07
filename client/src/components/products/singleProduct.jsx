@@ -3,6 +3,8 @@ import { Product, ProductActionButton, ProductAddToCart, ProductFavIcon, Product
 import ProductDescription from "./productDescription"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
+import FitScreenIcon from "@mui/icons-material/FitScreen";
+import Tooltip from "@mui/material/Tooltip";
 
 const SingleProduct = ({product, matches}) => {
     return (
@@ -17,6 +19,11 @@ const SingleProduct = ({product, matches}) => {
                         </ProductFavIcon>
                         <ProductActionButton>
                             <ShareIcon color="primary"/>
+                        </ProductActionButton>
+                        <ProductActionButton>
+                            <Tooltip placement="left" title="Full view">
+                                <FitScreenIcon color="primary" />
+                            </Tooltip>
                         </ProductActionButton>
                     </Stack>  
                 </ProductIconsWrapper>
