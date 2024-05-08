@@ -1,9 +1,16 @@
 import { BusinessAvatar, BusinessCard, BusinessCardContent, BusinessCardMedia,  BusinessLink } from "../../styles/businessStyles";
 import { Grid, Typography , Box, Divider} from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useNavigate } from "react-router-dom";
 
 
 export default function BusinessCardWrapper({business}) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/business/${business.id}`)
+  }
+
+
   return (
         <Grid item xs={4} sm={4} md={4}>
           <BusinessCard>
@@ -33,7 +40,7 @@ export default function BusinessCardWrapper({business}) {
               </BusinessCardContent>
             </Box>
             <Divider />
-            <BusinessLink href="#" underline="none">
+            <BusinessLink href="#" underline="none" onClick={handleClick}>
               See business <ArrowRightIcon />
             </BusinessLink>
 

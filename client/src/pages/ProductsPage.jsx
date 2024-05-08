@@ -1,4 +1,4 @@
-import { Box,  Typography } from "@mui/material"
+import { Box,  Typography, Grid } from "@mui/material"
 import Products from "../components/products";
 import { productData } from "../data/product";
 import PaginationOutlined from "../components/pagination";
@@ -24,19 +24,21 @@ const ProductsPage = ({data}) => {
     
     return (
         <BusinessContainer>
-            <Box sx={{marginBottom:"30px", display:"flex", justifyContent:"space-between"}}>
-                <Box>
+            <Grid container xs={12} sm={12} md={12} sx={{marginBottom:"30px", display:"flex", justifyContent:"space-between"}}>
+                <Grid item xs={12} sm={6} md={9}>
                     <Typography variant="h4">
                         Explore Products Around 
                     </Typography>
                     <Typography variant="body1">
                         Browse through our wide selection of categories to find what you're looking for.
                     </Typography>
-                </Box>
-                <Link to="/products/add">
-                    <PlugButton title={"Add Product"}/>
-                </Link>
-            </Box>
+                </Grid >
+                <Grid item xs={12} sm={6} md={3}>
+                    <Link to="/products/add">
+                        <PlugButton title={"Add Product"}/>
+                    </Link>
+                </Grid>
+            </Grid>
             <Products data={productData}/>
             <PaginationOutlined /> 
             

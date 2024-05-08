@@ -9,6 +9,8 @@ import SignUp from "./components/signup";
 import SignIn from "./components/signin";
 import AddProduct from "./components/addProduct";
 import { ProductDetailPage } from "./pages/ProductDetailPage";
+import { BusinessShow } from "./components/businessShow";
+import AddBusiness from "./components/addBusiness";
 
 const Router = createBrowserRouter([
     {
@@ -43,6 +45,18 @@ const Router = createBrowserRouter([
                 path: "/products/add",
                 errorElement: <NotFoundPage/>,
                 element: <AddProduct/>
+            },{
+                path: "/business/:id",
+                errorElement: <NotFoundPage/>,
+                element: <BusinessShow/>
+            },{
+                path: "/business/add",
+                errorElement: <NotFoundPage/>,
+                element: <AddBusiness/>
+            },{
+                path:"/contact/add",
+                element: <AddBusiness/>,
+                errorElement: <NotFoundPage/>
             }
         ]
     },{
