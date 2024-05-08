@@ -10,18 +10,18 @@ export const UIProvider = ({children}) => {
     const [showCategories, setShowCategories] = useState(false);
     const [products, setProducts] = useState([]);
 
-    const fetchProducts = async () => {
-        try {
-            const response = await fetch("http://localhost:5000/products/all");
-            const data = await response.json();
-            setProducts(data);
-        } catch (error) {
-            console.error('Error', error);      
-        }
-    };
-    useEffect(() => {
-        fetchProducts();
-    },[])
+    // const fetchProducts = async () => {
+    //     try {
+    //         const response = await fetch("http://localhost:5000/products/all");
+    //         const data = await response.json();
+    //         setProducts(data);
+    //     } catch (error) {
+    //         console.error('Error', error);      
+    //     }
+    // };
+    // useEffect(() => {
+    //     fetchProducts();
+    // },[])
     
     //definevalues
     const value = {
@@ -33,7 +33,7 @@ export const UIProvider = ({children}) => {
         setShowCategories,
         products,
         setProducts,
-        fetchProducts,
+        // fetchProducts,
     }
 
     return <UIContext.Provider value={value}>{children}</UIContext.Provider>

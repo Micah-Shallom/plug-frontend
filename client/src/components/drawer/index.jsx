@@ -4,6 +4,9 @@ import { DrawerCloseButton } from "../../styles/appBarStyles";
 import CloseIcon from '@mui/icons-material/Close';
 import { lighten } from "polished";
 import { Colors } from "../../styles/theme";
+import { Link } from "react-router-dom";
+import { LinkStyle } from "../../styles/appBarStyles"
+
 
 const AppDrawer = () => {
     const MiddleDivider = styled((props) => (
@@ -30,7 +33,9 @@ const AppDrawer = () => {
             <Drawer open={openDrawer} >
                 <List>
                     <ListItemButton>
-                        <ListItemText>Home</ListItemText>
+                        <LinkStyle to="/">
+                            <ListItemText>Home</ListItemText>
+                        </LinkStyle>
                     </ListItemButton>
                     <MiddleDivider />
                     <ListItemButton onClick={() => {
@@ -41,7 +46,9 @@ const AppDrawer = () => {
                     </ListItemButton>
                     <MiddleDivider />
                     <ListItemButton>
-                        <ListItemText>Products</ListItemText>
+                        <LinkStyle to="/products">
+                            <ListItemText>Products</ListItemText>
+                        </LinkStyle>
                     </ListItemButton>
                     <MiddleDivider />
                     <ListItemButton>
@@ -49,7 +56,9 @@ const AppDrawer = () => {
                     </ListItemButton>
                     <MiddleDivider />
                     <ListItemButton>
-                        <ListItemText>Bussinesses</ListItemText>
+                        <LinkStyle to="/business">
+                            <ListItemText>Business</ListItemText>
+                        </LinkStyle>
                     </ListItemButton>
                     <MiddleDivider />
                 </List>

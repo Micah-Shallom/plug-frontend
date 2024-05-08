@@ -5,13 +5,22 @@ import SearchBox from '../dropdown';
 import { ThemeProvider, Box } from "@mui/material";
 import {  Outlet } from "react-router-dom";
 import theme from "../../styles/theme";
+import { useUIContext } from '../../context/ui';
+
 
 
 
 const MainLayout = () => {
+  const {openDrawer, setOpenDrawer} = useUIContext();
+
+  const handleClick = () => {
+    openDrawer && setOpenDrawer(false);
+    
+  }
     return (
         <ThemeProvider theme={theme}>
         <Box
+          onClick={handleClick}
           maxWidth="xl"
           sx={
             {
