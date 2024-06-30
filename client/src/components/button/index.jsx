@@ -7,7 +7,7 @@ const PlugButton = ({title, fullWidth}) => {
     return (
         <Button
             startIcon={<SendIcon sx={{color: Colors.white}}/>}
-            sx={!fullWidth ? {"width":"300px"} : {mt:4, mb:4}}
+            sx={!fullWidth ? {"width":"300px"} : {mt:3, mb:3}}
             variant="contained"
             fullWidth = {fullWidth ? "true" : "false"}
             type="submit"
@@ -16,5 +16,7 @@ const PlugButton = ({title, fullWidth}) => {
         </Button>
     )
 }
+
+
 
 export default PlugButton;

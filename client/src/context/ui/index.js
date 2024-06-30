@@ -33,7 +33,6 @@ export const UIProvider = ({children}) => {
         setShowCategories,
         products,
         setProducts,
-        // fetchProducts,
     }
 
     return <UIContext.Provider value={value}>{children}</UIContext.Provider>

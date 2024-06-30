@@ -14,6 +14,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../styles/theme';
 import { Link as RouterLink } from 'react-router-dom';
 import PlugButton from '../button';
+import OAuthButton from '../button/oauthButton';
+import { Colors } from '../../styles/theme';
+import { useEffect, useState } from 'react';
+import supabase from '../../lib/helper/supabaseClient';
 
 function Copyright(props) {
   return (
@@ -30,6 +34,48 @@ function Copyright(props) {
 
 
 export default function SignIn() {
+
+  const [user, setUser] = useState(null);
+
+  const handleOAuthSignIn = async (event) => {
+    event.preventDefault();
+    const {user, error} = await supabase.auth.signInWithOAuth({
+      "provider": "github",
+    });
+
+    if (error) {  
+      console.error('Error', error);
+      return;
+    }else{
+      console.log('Github sign-in successful', user);
+    }
+  };
+
+  useEffect(() => {
+    const session = supabase.auth.session();
+
+    setUser(session?.user ?? null);
+
+    const {data: authListener} = supabase.auth.onAuthStateChange((_event, session) => {
+      switch (_event) {
+        case 'SIGNED_IN':
+          setUser(session?.user);
+          break;
+        case 'SIGNED_OUT':
+          setUser(null);
+          break;
+        default:
+          break;
+      }
+    });
+
+    return () => {
+      authListener.unsubscribe();
+    }
+
+  },[]);
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -113,6 +159,14 @@ export default function SignIn() {
               </Grid>
               <Copyright sx={{ mt: 5 }} />
             </Box>
+
+            {/* oauth buttons for google authentication */}
+           <OAuthButton 
+              title="Sign Up with Google" 
+              color={Colors.google} 
+              fullWidth 
+              onClick={handleOAuthSignIn}
+            />
           </Box>
         </Grid>
       </Grid>
